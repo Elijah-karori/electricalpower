@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Solar Power Calculator</title>
+    <script>
+        function showCustomPower() {
+            document.getElementById("powerForm").style.display = "block";
+            document.getElementById("inverterOptions").style.display = "none";
+            document.getElementById("panelOptions").style.display = "none";
+        }
+
+        function showInverter() {
+            document.getElementById("powerForm").style.display = "none";
+            document.getElementById("inverterOptions").style.display = "block";
+            document.getElementById("panelOptions").style.display = "none";
+        }
+
+        function showSolarPanels() {
+            document.getElementById("powerForm").style.display = "none";
+            document.getElementById("inverterOptions").style.display = "none";
+            document.getElementById("panelOptions").style.display = "block";
+        }
+    </script>
+</head>
+<body>
+    <h1>Solar Power Calculator</h1>
+
+    <nav>
+        <ul>
+            <li><a href="#" onclick="showCustomPower()">Custom Power</a></li>
+            <li><a href="#" onclick="showInverter()">Inverter</a></li>
+            <li><a href="#" onclick="showSolarPanels()">Solar Panels</a></li>
+        </ul>
+    </nav>
+
+    <div id="powerForm" style="display: none;">
+        <h2>Custom Power</h2>
+        <form>
+            <!-- Custom power form fields go here -->
+            <label for="powerInput">Power Input:</label>
+            <input type="number" id="powerInput" name="powerInput">
+            <input type="submit" value="Calculate">
+        </form>
+    </div>
+
+    <div id="inverterOptions" style="display: none;">
+        <h2>Inverter Options</h2>
+        <form>
+            <!-- Inverter options form fields go here -->
+            <label for="inverterType">Inverter Type:</label>
+            <select id="inverterType" name="inverterType">
+                <option value="option1">Option 1</option>
+                <option value="option2">Option 2</option>
+                <option value="option3">Option 3</option>
+            </select>
+            <input type="submit" value="Calculate">
+        </form>
+    </div>
+
+    <div id="panelOptions" style="display: none;">
+        <h2>Solar Panel Options</h2>
+        <form>
+            <!-- Solar panel options form fields go here -->
+            <label for="panelType">Panel Type:</label>
+            <select id="panelType" name="panelType">
+                <option value="option1">Option 1</option>
+                <option value="option2">Option 2</option>
+                <option value="option3">Option 3</option>
+            </select>
+            <input type="submit" value="Calculate">
+        </form>
+    </div>
+</body>
+</html>

@@ -26,10 +26,13 @@ const Solarpower: React.FC<{ result: number; setResult: (result: number) => void
   }
 
   return (
-    <div className="max-w-md mx-auto bg-white rounded-lg overflow-hidden shadow-lg">
+    <div className="max-w-md mx-auto bg-amber-100 rounded-lg overflow-hidden shadow-lg mt-6 m-4 ">
       <div className="p-6 relative">
         
-        <div className="flex items-center mb-2">
+        <div className="flex items-center mb-2 justify-between">
+           <label className="ml-2 text-xs text-gray-700 m-2">
+            {toggle ? "Switch to Total power Calculation" : "Switch to custom power Calculation"}
+          </label>
           <div
             className={`relative inline-flex items-center rounded-full w-12 h-6 transition-colors duration-200 ${
               toggle ? "bg-green-400" : "bg-gray-400"
@@ -53,56 +56,55 @@ const Solarpower: React.FC<{ result: number; setResult: (result: number) => void
               </svg>
             </span>
           </div>
-          <label className="ml-2 text-xs text-gray-500">
-            {toggle ? "Switch to Total power Calculation" : "Switch to custom power Calculation"}
-          </label>
+         
         </div>
 {!toggle && (
           <div>
-            <label className="text-xs text-gray-500 mb-1">
+            <label className="text-xs text-gray-8700 mb-1">
               Total Power calculation
             </label>
             <input
               type="number"
-              value={power}
-              onChange={(e) => setPower(parseFloat(e.target.value))}
-              placeholder="Enter power"
+               onChange={(e) => setPower(parseFloat(e.target.value))}
+              placeholder={(result/0.8).toString()}
               className="w-full py-2 px-3 rounded border-gray-300"
             />
           </div>
         )}
         {toggle && (
           <div>
-            <label className="text-xs text-gray-500 mb-1">
+            <label className="text-xs text-gray-700 mb-1">
               Custom individual Power calculation
             </label>
+            <br />
+           
             <input
               type="number"
-              className="custom w-full py-2 px-3 rounded border-gray-300 mt-2"
+              className="custom w-full py-2 px-3 rounded border-gray-400 mt-2"
               placeholder="Enter electronics power(phone Charger, laptop charger woofer power rating"
               id="electronics"
             />
             <input
               type="number"
-              className="custom w-full py-2 px-3 rounded border-gray-300 mt-2"
+              className="custom w-full py-2 px-3 rounded border-gray-400 mt-2"
               placeholder="Enter Room power usage e.g kitchen power(adding oven power, water heater, blender"
               id="kitchen"
             />
             <input
               type="number"
-              className="custom w-full py-2 px-3 rounded border-gray-300 mt-2"
+              className="custom w-full py-2 px-3 rounded border-gray-400 mt-2"
               placeholder="Enter siting Room power usage e.g siting power(adding TV power, lights, sound equipment"
               id="sitting"
             />
              <input
               type="number"
-              className="custom w-full py-2 px-3 rounded border-gray-300 mt-2"
+              className="custom w-full py-2 px-3 rounded border-gray-400 mt-2"
               placeholder="Enter server Room power usage e.g server machines, AC, routers, switches "
               id="server"
             />
              <input
               type="number"
-              className="custom w-full py-2 px-3 rounded border-gray-300 mt-2"
+              className="custom w-full py-2 px-3 rounded border-gray-400 mt-2"
               placeholder="Enter measured power usage e.g power measured by clamp meter"
               id="measured"
             />
@@ -118,7 +120,7 @@ const Solarpower: React.FC<{ result: number; setResult: (result: number) => void
           Calculate
         </button>
 
-        <p className="mt-4">Total Power: {`(AC) ${result.toFixed(2)} VA`}</p>
+        <p className="mt-4">Total Power: <span className="text-lg font-bold font-sans">{`(AC) ${result.toFixed(2)} VA`}</span> </p>
       </div>
     </div>
   );

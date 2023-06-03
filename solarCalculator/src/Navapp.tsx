@@ -1,21 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
+import { BrowserRouter } from "react-router-dom";
 import Navbar from "../components/Narbar";
-import Solarpower from "../components/solarPower";
-import Inverter from "../components/inverter";
-import Battery from "../components/Battery"
+
 //import SlidingInput from "../components/slider"
 
 const Navapp: React.FC = () => {
-  const [result, setResult] = useState(0);
 
   return (
+    <BrowserRouter>
     <div>
-        <Navbar></Navbar>
-      <Solarpower setResult={setResult} result={result} />
-      <Inverter result={result} />
-      <Battery result={result}/>
+        <Navbar/>
       
     </div>
+    </BrowserRouter>
   );
 };
 

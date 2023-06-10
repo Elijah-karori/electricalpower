@@ -1,5 +1,6 @@
 import React from "react";
 import Product from "./Product";
+import axios from "axios";
 
 const productRecommendations = [
   {
@@ -19,7 +20,9 @@ const Inverter: React.FC<{ result: number;setResult: (result: number) => void }>
   // Calculate the inverter power rating based on the result
   const inverterPowerRating = Math.ceil(result * 1.2);
 
-  return (
+  
+
+return (
     <div className="container p-4 m-6 mt-7 bg-slate-300 rounded-lg shadow-md shadow-slate-600">
       <h2>Inverter Component</h2>
       <label htmlFor="power">custom Power</label>
@@ -35,6 +38,7 @@ const Inverter: React.FC<{ result: number;setResult: (result: number) => void }>
 
       
       <h3>Product Recommendations</h3>
+      
       <div className="flex flex-row max-[640px]:flex-col m-2 p-4 justify-around max-[640px]:justify-center bg-yellow-500 max-h-max">
         {productRecommendations.map((product, index) => (
           <Product key={index} name={product.name} powerRating={product.powerRating} link={product.link} />

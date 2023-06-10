@@ -209,6 +209,19 @@
         menu_open.classList.toggle('hidden')
         menu.classList.toggle('invisible')
       }
+       async function getData(url ) {
+
+    const response = await fetch(url,{
+method:"GET",
+mode:"cors",
+cache:"no-cache",
+credentials:"same-origin",
+
+    });
+    return response.json
+  }
+const data = getData("http://localhost:4000/products/Inverter 1000W")
+console.log(data) 
     </script>
     </div>
     
